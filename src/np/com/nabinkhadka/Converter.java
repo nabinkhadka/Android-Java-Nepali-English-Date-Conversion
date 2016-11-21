@@ -50,7 +50,7 @@ public class Converter {
                 nDay = 1;
             }
         }
-        System.out.println("Nepali iterations: " + deltaDays);
+        Common.log("Nepali iterations: " + deltaDays);
         String week_day = "" + end.dayOfWeek().getAsText();
         return new NepaliDate(nYear, nMonth, nDay, week_day);
     }
@@ -78,7 +78,7 @@ public class Converter {
                 l_day = 1;
             }
         }
-        System.out.println("English iterations: " + deltaDays);
+        Common.log("English iterations: " + deltaDays);
         DateTime dateTime = new DateTime(START_ENGLISH_YEAR, START_ENGLISH_MONTH, START_ENGLISH_DAY, 0 , 0);
         return new EnglishDate(dateTime.withFieldAdded(DurationFieldType.days(), deltaDays));
     }
