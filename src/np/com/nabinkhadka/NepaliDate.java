@@ -1,10 +1,12 @@
+package np.com.nabinkhadka;
+
 /**
  * Created by nabin_khadka on 11/18/16.
  */
 public class NepaliDate {
 
     private int mahina, gatey, saal;
-    private String baar;
+    private int baar;
     public static final String MONTHS[] = {"Baisakh", "Jestha", "Ashar", "Shrawan",
             "Bhadra", "Ashoj", "Kartik", "Mangsir",
             "Poush", "Magh", "Falgun", "Chaitra"};
@@ -97,11 +99,27 @@ public class NepaliDate {
 
     }
 
-    public NepaliDate(int saal, int mahina, int gatey, String baar) {
+    public NepaliDate(int saal, int mahina, int gatey, int baar) {
         this.mahina = mahina;
         this.gatey = gatey;
         this.saal = saal;
         this.baar = baar;
+    }
+
+    public int getMahina() {
+        return mahina;
+    }
+
+    public int getGatey() {
+        return gatey;
+    }
+
+    public int getSaal() {
+        return saal;
+    }
+
+    public int getBaar() {
+        return baar;
     }
 
     public String getMahinaInWords() {
@@ -113,6 +131,6 @@ public class NepaliDate {
     }
 
     public String toString(){
-        return saal + " / " + mahina + " / " + gatey + " " + baar ;
+        return saal + " / " + mahina + " / " + gatey + " " + EnglishDate.WEEK_DAYS[baar] ;
     }
 }
