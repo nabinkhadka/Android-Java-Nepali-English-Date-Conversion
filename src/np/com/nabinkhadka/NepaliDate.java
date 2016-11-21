@@ -6,7 +6,7 @@ package np.com.nabinkhadka;
 public class NepaliDate {
 
     private int mahina, gatey, saal;
-    private int baar;
+    private String baar;
     public static final String MONTHS[] = {"Baisakh", "Jestha", "Ashar", "Shrawan",
             "Bhadra", "Ashoj", "Kartik", "Mangsir",
             "Poush", "Magh", "Falgun", "Chaitra"};
@@ -99,7 +99,7 @@ public class NepaliDate {
 
     }
 
-    public NepaliDate(int saal, int mahina, int gatey, int baar) {
+    public NepaliDate(int saal, int mahina, int gatey, String baar) {
         this.mahina = mahina;
         this.gatey = gatey;
         this.saal = saal;
@@ -118,7 +118,7 @@ public class NepaliDate {
         return saal;
     }
 
-    public int getBaar() {
+    public String getBaar() {
         return baar;
     }
 
@@ -131,6 +131,8 @@ public class NepaliDate {
     }
 
     public String toString(){
-        return saal + " / " + mahina + " / " + gatey + " " + EnglishDate.WEEK_DAYS[baar] ;
+        return saal + " / " + mahina + " / " + gatey + " " + baar ;
     }
+
+
 }

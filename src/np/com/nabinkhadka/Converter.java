@@ -51,7 +51,7 @@ public class Converter {
             }
         }
         System.out.println("Nepali iterations: " + deltaDays);
-        int week_day = end.getDayOfWeek();
+        String week_day = "" + end.dayOfWeek().getAsText();
         return new NepaliDate(nYear, nMonth, nDay, week_day);
     }
 
@@ -84,29 +84,31 @@ public class Converter {
     }
 
     public List<NepaliDate> getFullNepaliMonthOf(int eYear, int eMonth, int eDay) {
-        NepaliDate temp = getNepaliDate(eYear, eMonth, eDay);
-        int thisNepaliDay = temp.getGatey();
-        int thisNepaliYear = temp.getSaal();
-        int thisNepaliMonth = temp.getMahina();
-        int thisWeekDay = temp.getBaar();
+        NepaliDate local = getNepaliDate(eYear, eMonth, eDay);
+        int thisNepaliDay = local.getGatey();
+        int thisNepaliYear = local.getSaal();
+        int thisNepaliMonth = local.getMahina();
+        String thisWeekDay = local.getBaar();
         List<NepaliDate> nepaliDates = new ArrayList<NepaliDate>();
-        int weekIndex = thisWeekDay;
+        int weekIndex = EnglishDate.getWeekIndex(thisWeekDay);
         for (int i = thisNepaliDay; i > 0; i--) {
-            nepaliDates.add(new NepaliDate(thisNepaliYear, thisNepaliMonth, i, weekIndex -1 ));
+            nepaliDates.add(new NepaliDate(thisNepaliYear, thisNepaliMonth, i,
+                    EnglishDate.WEEK_DAYS[weekIndex - 1]));
             if (weekIndex > 1) {
                 weekIndex--;
             } else {
                 weekIndex = 7;
             }
         }
-        weekIndex = thisWeekDay;
+        weekIndex = EnglishDate.getWeekIndex(thisWeekDay);
         if (weekIndex < 7) {
             weekIndex++;
         } else {
             weekIndex = 1;
         }
-        for (int i = thisNepaliDay + 1; i <= temp.getDaysOf(thisNepaliYear, thisNepaliMonth); i++) {
-            nepaliDates.add(new NepaliDate(thisNepaliYear, thisNepaliMonth, i, weekIndex - 1));
+        for (int i = thisNepaliDay + 1; i <= local.getDaysOf(thisNepaliYear, thisNepaliMonth); i++) {
+            nepaliDates.add(new NepaliDate(thisNepaliYear, thisNepaliMonth, i,
+                    EnglishDate.WEEK_DAYS[weekIndex - 1]));
             if (weekIndex < 7) {
                 weekIndex++;
             } else {
