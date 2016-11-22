@@ -1,4 +1,4 @@
-# nepali-english-date-conversion-for-java
+# nepali-english-date-conversion-for-java-android
 Trying to build a reusable simple java class for nepali to english date conversion and vice-versa
 NOT READY YET
 
