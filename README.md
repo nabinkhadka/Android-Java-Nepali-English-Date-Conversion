@@ -44,7 +44,7 @@ List of all days in a month can be obtained (which can be useful to render as a 
         Converter converter = new Converter();
 
         List<NepaliDate> nepaliDateList = converter.getFullNepaliMonthOf(1992, 4, 20);
-
+        //nepaliDateList list contains all days of the April month of 1992.
         for (NepaliDate nepaliDate: nepaliDateList){
             System.out.println(nepaliDate.toString());
         }
